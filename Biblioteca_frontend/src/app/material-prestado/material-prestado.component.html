@@ -1,0 +1,49 @@
+<h3>Prestados</h3>
+
+<mat-form-field appearance="fill" [hidden] ="!dataSource" style="padding-top: 10px;">
+  <mat-label>Buscar</mat-label>
+    <input matInput (keyup)="aplicarFiltro($event)"  autocomplete="off">
+    <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="titulo">
+    <th mat-header-cell *matHeaderCellDef> Título </th>
+    <td mat-cell *matCellDef="let element"> {{element.material.titulo}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="id_autor">
+    <th mat-header-cell *matHeaderCellDef> Autor </th>
+    <td mat-cell *matCellDef="let element "> {{element.material.nombresdeautores}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cedula">
+    <th mat-header-cell *matHeaderCellDef> Cedula </th>
+    <td mat-cell *matCellDef="let element "> {{element.usuario.cedula}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="id_usuario">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{element.usuario.nombre}} {{element.usuario.apellido}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="Acciones">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let element">
+      <button [routerLink]="['/devolver-material', element.id_prestamo]" mat-raised-button color="primary">
+        <b>Devolver</b>
+      </button>
+    </td>
+  </ng-container> 
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table >
+
+<button routerLink="/prestamos" mat-raised-button color="primary">Volver</button>
+
+<mat-paginator [length]="10" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+

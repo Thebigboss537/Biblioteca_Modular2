@@ -1,0 +1,13 @@
+<mat-card>
+
+    <span>Préstamo</span>
+    <form [formGroup]="devolucionForm" (ngSubmit) = "onSubmit()">
+        <mat-form-field class="crear-usuario-field">
+            <input matInput placeholder="Observacion" formControlName="observacion"> 
+        </mat-form-field>
+        <button mat-flat-button (click)="cancel()">Volver</button>
+        
+        <button mat-raised-button [disabled]="!devolucionForm.valid" >Devolver</button>
+    </form>
+    
+</mat-card>

@@ -1,0 +1,13 @@
+<mat-card>
+    <span>Agregar editorial</span>
+    <form [formGroup]="editorialForm" (ngSubmit) = "onSubmit()">
+        <mat-form-field class="crear-editorial-field">
+            <input matInput placeholder="Nombre de la editorial" formControlName="nombre"> 
+        </mat-form-field>
+
+        <button mat-raised-button routerLink='/editorial'>Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="!editorialForm.valid" >Crear</button>
+    </form>
+
+
+</mat-card>

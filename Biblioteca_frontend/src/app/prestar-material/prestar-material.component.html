@@ -1,0 +1,20 @@
+<mat-card>
+    <span>Préstamo</span>
+    <form [formGroup]="UsuarioForm" (ngSubmit) = "onSubmit()">
+        <mat-form-field class="crear-usuario-field">
+            <input matInput placeholder="Cédula del usuario" formControlName="cedula"> 
+        </mat-form-field>
+
+        <br>
+
+        <mat-form-field class="crear-usuario-field">
+            <input matInput placeholder="Duracion del préstamo (días)" formControlName="dias"> 
+        </mat-form-field>
+
+        <br>
+
+        <button mat-raised-button [disabled]="!UsuarioForm.valid" >Crear</button>
+    </form>
+    
+
+</mat-card>

@@ -1,0 +1,15 @@
+<mat-card>
+    <span>Registrarse</span>
+    <br/>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input matInput placeholder="Cedula" formControlName="nombre_usuario"> 
+        </mat-form-field>
+        <br/>
+        <mat-form-field>
+            <input matInput placeholder="Contraseña" type="password" formControlName="password"> 
+        </mat-form-field>
+        <br/>
+        <button mat-raised-button color="primary" [disabled]="!registerForm.valid">Registrarse</button>
+    </form>
+</mat-card>

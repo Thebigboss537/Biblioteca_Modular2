@@ -1,0 +1,15 @@
+
+<mat-card>
+    <span>Crear nuevo Tipo de Material</span>
+    <form [formGroup]="tipo_materialForm" (ngSubmit) = "onSubmit()">
+        <mat-form-field class="crear-tipo-material-field">
+            <input matInput placeholder="Nombre del tipo de material" formControlName="nombre"> 
+        </mat-form-field>
+
+        <button mat-raised-button color="warn" routerLink='/Tipo_material'>Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="!tipo_materialForm.valid">Crear</button>
+
+    </form>
+    
+
+</mat-card>

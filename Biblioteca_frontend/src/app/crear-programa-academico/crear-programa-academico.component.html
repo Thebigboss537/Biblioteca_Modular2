@@ -1,0 +1,15 @@
+
+<mat-card>
+    <span>Crear nuevo Programa Academico</span>
+    <form [formGroup]="programa_academicoForm" (ngSubmit) = "onSubmit()">
+        <mat-form-field class="crear-programa_academico-field">
+            <input matInput placeholder="Nombre del programa academico" formControlName="nombre"> 
+        </mat-form-field>
+        
+        <button mat-raised-button routerLink='/programa_academico'>Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="!programa_academicoForm.valid">Crear</button>
+        
+    </form>
+    
+
+</mat-card>

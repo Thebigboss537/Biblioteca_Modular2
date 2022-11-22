@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>Actualizar Usuario</h2>
+
+<mat-dialog-content [formGroup]="form">
+
+    <mat-form-field class="crear-usuario-field">
+        <input matInput placeholder="cedula" formControlName="cedula">
+    </mat-form-field>
+    <mat-form-field class="crear-usuario-field">
+        <input matInput placeholder="Nombre" formControlName="nombre"> 
+    </mat-form-field>
+    <mat-form-field class="crear-usuario-field">
+        <input matInput placeholder="Apellido" formControlName="apellido">
+    </mat-form-field>
+
+    <mat-form-field class="crear-usuario-field">
+        <mat-label>Programa Academico</mat-label>
+        <mat-select formControlName="id_programa_academico">
+            <mat-option *ngFor="let element of dataSource" [value]="element.id_programa_academico">
+                {{element.nombre}}
+            </mat-option>
+        </mat-select>
+   </mat-form-field>
+
+    <mat-form-field class="crear-usuario-field">
+        <input matInput placeholder="Telefono" formControlName="telefono">
+    </mat-form-field>
+    
+    <mat-form-field class="crear-usuario-field">
+        <input matInput placeholder="Semestre" formControlName="semestre">
+    </mat-form-field> 
+     
+    <!--<mat-form-field class="crear-usuario-field">
+        <mat-label>Rol</mat-label>
+        <mat-select formControlName="id_rol">
+            <mat-option *ngFor="let element2 of dataSourceRol" [value]="element2.id_rol">
+                {{element2.nombre}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>-->
+
+      <mat-form-field class="crear-usuario-field">
+         <input matInput placeholder="Correo_Electronico" formControlName="correo_electronico">
+      </mat-form-field>
+
+      <mat-form-field class="crear-usuario-field">
+        <input matInput placeholder="Estado" type="number" formControlName="estado">
+     </mat-form-field>
+
+    <br/>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="cerrar()">Cerrar</button>
+    <button class="mat-raised-button mat-primary" (click)="guardar()">Guardar</button>
+
+</mat-dialog-actions>

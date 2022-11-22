@@ -1,0 +1,119 @@
+<mat-card>
+    <span>Crear nuevo Material</span>
+    <button mat-button (click)="addautor()">Agregar autor</button>
+    <button mat-button (click)="addcategoria()">Agregar categoria</button>
+    <form [formGroup]="materialForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="crear-material-field">
+            <input matInput placeholder="Titulo" formControlName="titulo">
+        </mat-form-field>
+
+        <div formArrayName="autores">
+            <div *ngFor="let item of autores.controls; let i = index">
+                <div [formGroupName]="i">
+                    <mat-form-field class="crear-material-field">
+                        <mat-label>Autor</mat-label>
+                        <mat-select formControlName=id_autor>
+                            <mat-option *ngFor="let element of autor" [value]="element.id_autor">
+                                {{element.nombre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field> 
+                </div>
+            </div>
+        </div>
+
+        
+
+
+
+        <mat-form-field class="crear-material-field">
+            <mat-label>Tipo de material</mat-label>
+            <mat-select formControlName="id_tipo_material">
+                <mat-option *ngFor="let element of tipomaterial" [value]="element.id_tipo_material">
+                    {{element.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="crear-material-field">
+            <mat-label>Editorial</mat-label>
+            <mat-select formControlName="id_editorial">
+                <mat-option *ngFor="let element of editorial" [value]="element.id_editorial">
+                    {{element.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="crear-material-field">
+            <input matInput maxlength="250" placeholder="Descripcion" formControlName="descripcion"> 
+        </mat-form-field>
+
+        <mat-form-field class="crear-material-field">
+            <input matInput placeholder="Año de creacion" formControlName="año"> 
+        </mat-form-field>
+
+        <mat-form-field class="crear-material-field">
+            <input matInput placeholder="Formato" formControlName="formato"> 
+        </mat-form-field>
+
+        <mat-form-field class="crear-material-field">
+            <input matInput placeholder="Idioma" formControlName="idioma"> 
+        </mat-form-field>
+
+        <mat-form-field class="crear-material-field">
+            <input matInput placeholder="isbn" formControlName="iSBN"> 
+        </mat-form-field>
+
+        <mat-form-field class="crear-material-field">
+            <mat-label>Sede</mat-label>
+            <mat-select formControlName="id_sede">
+                <mat-option *ngFor="let element of sede" [value]="element.id_sede">
+                    {{element.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="crear-material-field">
+            <input matInput placeholder="Observacion" formControlName="observacion"> 
+        </mat-form-field>
+
+
+        <div formArrayName="categorias">
+            <div *ngFor="let item of categorias.controls; let i = index">
+                <div [formGroupName]="i">
+                    <mat-form-field class="crear-material-field">
+                        <mat-label>Categoria</mat-label>
+                        <mat-select formControlName="id_categoria">
+                            <mat-option *ngFor="let element of categoria" [value]="element.id_categoria">
+                                 {{element.nombre}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <button mat-raised-button color="primary" [disabled]="!materialForm.valid">Crear</button>
+    
+    </form>
+
+
+
+
+    <input type="file" accept=".pdf" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+
+    <div class="file-upload">
+
+        {{fileName || "No file uploaded yet."}}
+
+        <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+            <mat-icon>attach_file</mat-icon>
+        </button>
+    </div>
+
+    <mat-icon class="cancel-upload" (click)="cancelUpload()" *ngIf="formData.get('archivo')">delete_forever</mat-icon>
+      
+    
+
+    <button mat-raised-button color="warn" routerLink='/material'>Cancelar</button>
+</mat-card>

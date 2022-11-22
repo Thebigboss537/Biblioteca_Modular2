@@ -1,0 +1,48 @@
+<mat-card>
+
+    <mat-form-field class="crear-usuario-field" [formGroup]="tipoform">
+        <mat-label>Select an option</mat-label>
+        <mat-select formControlName="tipo" (selectionChange)="Tipo_usuario(tipoform)">
+          <mat-option value="usuario">Usuario</mat-option>
+          <mat-option value="bibliotecario">Bibliotecario</mat-option>
+        </mat-select>
+      </mat-form-field>
+       
+    <span>Crear nuevo Usuario</span>
+    <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()" class="crear-funcionario-form">
+        <mat-form-field class="crear-usuario-field">
+            <input matInput placeholder="cedula" formControlName="cedula" type="number">
+        </mat-form-field>
+        <mat-form-field class="crear-usuario-field">
+            <input matInput placeholder="Nombre" formControlName="nombre"> 
+        </mat-form-field>
+        <mat-form-field class="crear-usuario-field">
+            <input matInput placeholder="Apellido" formControlName="apellido">
+        </mat-form-field>
+
+        <mat-form-field class="crear-usuario-field">
+            <mat-label>Programa Academico</mat-label>
+            <mat-select formControlName="id_programa_academico" >
+                <mat-option *ngFor="let element of dataSource" [value]="element.id_programa_academico">
+                    {{element.nombre}}
+                </mat-option>
+            </mat-select>
+       </mat-form-field>
+
+        <mat-form-field class="crear-usuario-field">
+             <input matInput placeholder="Telefono" formControlName="telefono">
+        </mat-form-field>
+
+        <mat-form-field class="crear-usuario-field">
+             <input matInput placeholder="Semestre" type="number" formControlName="semestre">
+         </mat-form-field> 
+         
+          <mat-form-field class="crear-usuario-field">
+             <input matInput placeholder="Correo_Electronico" formControlName="correo_electronico">
+          </mat-form-field>
+         <button mat-raised-button color="warn" routerLink='/usuario'>Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="!usuarioForm.valid" >Crear</button>
+    </form>
+    
+
+</mat-card>

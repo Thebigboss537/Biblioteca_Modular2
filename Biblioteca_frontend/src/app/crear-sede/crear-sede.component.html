@@ -1,0 +1,17 @@
+
+<mat-card>
+    <span>Crear nueva Sede</span>
+    <form [formGroup]="sedeForm" (ngSubmit) = "onSubmit()">
+        <mat-form-field class="crear-sede-field">
+            <input matInput placeholder="Nombre de la sede" formControlName="nombre"> 
+        </mat-form-field>
+
+        <button mat-raised-button routerLink='/sede'>Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="!sedeForm.valid" >Crear</button>
+    </form>
+    
+
+</mat-card>
+
+
+

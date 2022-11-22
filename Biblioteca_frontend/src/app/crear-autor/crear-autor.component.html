@@ -1,0 +1,14 @@
+
+<mat-card>
+    <span>Crear nuevo Autor</span>
+    <form [formGroup]="autorForm" (ngSubmit) = "onSubmit()">
+        <mat-form-field class="crear-autor-field">
+            <input matInput placeholder="Nombre del autor" formControlName="nombre"> 
+        </mat-form-field>
+
+        <button mat-raised-button color="warn" routerLink='/autor'>Cancelar</button>
+        <button mat-raised-button color="primary" [disabled]="!autorForm.valid" >Crear</button>
+    </form>
+    
+
+</mat-card>

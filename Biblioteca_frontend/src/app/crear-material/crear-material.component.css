@@ -1,0 +1,20 @@
+.crear-material-form {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 5%;
+}
+
+.crear-material-field{
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.crear-form-btn{
+    position: relative;
+}
+
+.file-input {
+    display: none;
+}

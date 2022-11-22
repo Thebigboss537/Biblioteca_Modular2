@@ -1,0 +1,32 @@
+<div class="example-container" >
+    <mat-toolbar class="header">
+        <mat-toolbar-row class="botones">
+            <button mat-icon-button *ngIf="auth.isAutenticado" (click)="snav.toggle()" color="white"><mat-icon>menu</mat-icon></button>
+            <span style="flex: 1 1 auto"></span>
+            <button mat-button *ngIf="auth.isAutenticado">Bienvenido: {{auth.getUsername}}</button>
+            <button mat-button *ngIf="auth.isAutenticado" (click)="auth.logout()" ><mat-icon color="white">logout</mat-icon> </button>
+            <button mat-button *ngIf="!auth.isAutenticado" routerLink="/registro">Registrarse</button>
+            <button mat-button *ngIf="!auth.isAutenticado" routerLink="/login">Login</button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    
+    <mat-sidenav-container class="example-sidenav-container">
+        <mat-sidenav #snav [mode]="'over'">
+            <mat-nav-list>
+                <a mat-list-item routerLink='/material'>Materiales</a>
+                <a mat-list-item *ngIf="auth.iscliente || auth.isadmin" routerLink='/reservas'>Reservas</a>
+                <a mat-list-item *ngIf="auth.isadmin || auth.isbibliotecario" routerLink='/prestamos'>Prestamos</a>
+				<a mat-list-item *ngIf="auth.isadmin" routerLink='/usuario'>Usuarios</a>
+                <a mat-list-item *ngIf="auth.isadmin || auth.isbibliotecario" routerLink='/editorial'>Editorial</a>
+				<a mat-list-item *ngIf="auth.isadmin" routerLink='/programa_academico'>Programa Academico</a>
+				<a mat-list-item *ngIf="auth.isadmin || auth.isbibliotecario" routerLink='/Tipo_material'>Tipo material</a>
+				<a mat-list-item *ngIf="auth.isadmin || auth.isbibliotecario"routerLink='/autor'>Autores</a>
+				<a mat-list-item *ngIf="auth.isadmin || auth.isbibliotecario" routerLink='/categoria'>Categorias</a>
+				<a mat-list-item *ngIf="auth.isadmin || auth.isbibliotecario" routerLink='/sede'>Sedes</a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

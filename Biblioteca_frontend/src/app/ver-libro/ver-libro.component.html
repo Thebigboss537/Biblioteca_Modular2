@@ -1,0 +1,53 @@
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title>Libro</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item>
+                <b>Nombre: {{material.titulo}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>Autor: {{material.nombresdeautores}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>Categoria: {{material.nombresdecategorias}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>Editorial: {{material.editorial}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>Descripcion: {{material.descripcion}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>Año: {{material.ano}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>Formato: {{material.formato}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>Idioma: {{material.idioma}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>isbn: {{material.isbn}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>Sede: {{material.sede}}</b>
+            </mat-list-item>
+            <mat-list-item>
+                <b>Obervacion: {{material.observacion}}</b>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <button mat-raised-button (click)="cancel()">Volver</button>
+    </mat-card-actions>
+
+    <mat-card-actions *ngIf="pdf()">
+        <a mat-raised-button color="primary" href="https://bibliotecamodular.blob.core.windows.net/pdfs/{{this.material.archivo}}" target="_blank">Ver pdf</a>
+    </mat-card-actions>
+
+</mat-card>
